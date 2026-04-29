@@ -7,22 +7,29 @@
         @if (materias.length === 0){
             <p>No hay materias disponibles.</p>}
         @for (materia of materias; track materia.nombre){
+            <h3>{{materia.nombre}}</h3>
             <p 
             [class]="materia.aprobada ? 'class-aprobada' : 'class-no-aprobada'"
-            >{{ materia.nombre }} - 
+            >
                 {{ materia.creditos }} créditos - 
                 {{ materia.aprobada ? 'Aprobada' : 'No aprobada' }}</p>
         }
     </div>
     <div>
         <p>Créditos acumulados: {{ creditos }}</p>
-        <progress [value]="creditos" [max]="120"
+        <progress [value]="creditos" [max]="maxCreditos"
         [ngClass] = "{
             'low-credits': creditos < 40,
             'medium-credits': creditos >= 40 && creditos < 70,
             'high-credits': creditos >= 70
         }"></progress>
-        <button (click)="sumarCreditos()">Sumar 10 créditos</button>
-        <button (click)="restarCreditos()">Restar 10 créditos</button>
+        <button (click)="sumarCreditos()" [style.background-color]="'green' "
+        [style.color]="'white'"
+        [style.border-radius]="'5px'"
+        [style.padding]="'10px'">Sumar 10 créditos</button>
+        <button (click)="restarCreditos()" [style.background-color]="'red' "
+        [style.color]="'white'"
+        [style.border-radius]="'5px'"
+        [style.padding]="'10px'">Restar 10 créditos</button>
     </div>
 </div>
