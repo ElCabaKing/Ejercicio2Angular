@@ -1,6 +1,7 @@
 <div class="body-container">
     <div class="search-container">
-        <input type="text" placeholder="Nombre de la materia" [(ngModel)]="busqueda">
+        <input type="text" placeholder="Nombre de la materia" [(ngModel)]="busqueda"
+        (input)="busquedaMaterias()"    >
         {{ busqueda }}
     </div>
     <div class="materias-container">

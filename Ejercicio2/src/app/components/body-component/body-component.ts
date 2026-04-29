@@ -20,12 +20,12 @@ export class BodyComponent {
   public busqueda: string = '';
   public creditos: number = 45;
   public maxCreditos: number = 120;
-  materias: Materia[] = [{ nombre: 'Cálculo', creditos: 4, aprobada: true },
+  materiasBase: Materia[] = [{ nombre: 'Cálculo', creditos: 4, aprobada: true },
   { nombre: 'Física', creditos: 4, aprobada: false },
   { nombre: 'Programación', creditos: 3, aprobada: true },
   { nombre: 'Base de Datos', creditos: 3, aprobada: false },
   { nombre: 'Inglés', creditos: 2, aprobada: true },];
-
+    materias = this.materiasBase;
 
   sumarCreditos(): void {
     if (this.creditos >= this.maxCreditos) {
@@ -44,5 +44,14 @@ export class BodyComponent {
     if (this.creditos < 0) {
       this.creditos = 0;
     }
+  }
+
+  busquedaMaterias(): void {
+    if (!this.busqueda) {
+      console.log('No hay texto de búsqueda, mostrando todas las materias.');
+      this.materias = this.materiasBase;
+      return;
+    }
+    this.materias = this.materiasBase  .filter(materia => materia.nombre.toLowerCase().includes(this.busqueda.toLowerCase()));
   }
 }
