@@ -14,4 +14,15 @@
                 {{ materia.aprobada ? 'Aprobada' : 'No aprobada' }}</p>
         }
     </div>
+    <div>
+        <p>Créditos acumulados: {{ creditos }}</p>
+        <progress [value]="creditos" [max]="120"
+        [ngClass] = "{
+            'low-credits': creditos < 30,
+            'medium-credits': creditos >= 30 && creditos < 60,
+            'high-credits': creditos >= 60
+        }"></progress>
+        <button (click)="sumarCreditos()">Sumar 10 créditos</button>
+        <button (click)="restarCreditos()">Restar 10 créditos</button>
+    </div>
 </div>

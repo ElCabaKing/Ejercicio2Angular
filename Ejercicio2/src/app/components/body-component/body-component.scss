@@ -1,13 +1,34 @@
-.class-aprobada{
+.class-aprobada {
     color: green;
 }
-.class-no-aprobada{
+
+.class-no-aprobada {
     color: red;
 }
 
 
-.body-container{
+.body-container {
     background-color: #c5c2c2;
     border-radius: 5px;
     padding: 20px;
 }
+
+progress {
+    width: 100%;
+    height: 20px;
+    background-color: gray;
+    border-radius: 10px;
+}
+
+progress.low-credits::-moz-progress-bar {
+    background: red;
+}
+
+progress.medium-credits::-moz-progress-bar {
+    background: yellow;
+}
+
+progress.high-credits::-moz-progress-bar {
+    background: green;
+}
+
