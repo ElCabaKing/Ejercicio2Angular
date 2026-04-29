@@ -1,0 +1,9 @@
+<div class="header-container">
+    <div>
+    <h1>{{ title }}</h1>
+    <p [class]="isOnline ? 'student-online' : 'student-offline'">{{ studentName }}</p>
+    </div>
+    <div>
+    <button [class] = "isOnline ? 'button-online' : 'button-offline'" (click)="isOnline = !isOnline">{{ isOnline ? 'Desconectar' : 'Conectar' }}</button>
+    </div>
+</div>

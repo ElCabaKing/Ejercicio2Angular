@@ -1,0 +1,17 @@
+<div class="body-container">
+    <div class="search-container">
+        <input type="text" placeholder="Nombre de la materia" [(ngModel)]="busqueda">
+        {{ busqueda }}
+    </div>
+    <div class="materias-container">
+        @if (materias.length === 0){
+            <p>No hay materias disponibles.</p>}
+        @for (materia of materias; track materia.nombre){
+            <p 
+            [class]="materia.aprobada ? 'class-aprobada' : 'class-no-aprobada'"
+            >{{ materia.nombre }} - 
+                {{ materia.creditos }} créditos - 
+                {{ materia.aprobada ? 'Aprobada' : 'No aprobada' }}</p>
+        }
+    </div>
+</div>
