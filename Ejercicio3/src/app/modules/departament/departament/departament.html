@@ -1,0 +1,13 @@
+<div>
+    <h1>Departamentos</h1>
+    @if(isLoading()){
+        <p>Cargando...</p>
+    }
+    @else{
+        <ul>
+            @for(departament of listDepartaments(); track departament.id){
+                <li>{{ departament.name }}</li>
+            }
+        </ul>
+    }
+</div>
