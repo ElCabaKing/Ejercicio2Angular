@@ -1,6 +1,6 @@
 import { Injectable, inject } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { environment } from '../../../env/enviroments';
+import { environment } from '../../../environments/environment';
 import { Observable } from 'rxjs';
 import { IEmployee } from '../../core/interfaces/employee';
 @Injectable({

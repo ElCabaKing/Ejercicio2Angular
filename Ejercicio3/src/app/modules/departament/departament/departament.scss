@@ -1,0 +1,106 @@
+.list-page {
+	max-width: 1080px;
+	margin: 2rem auto;
+	padding: 1rem;
+}
+
+.list-header {
+	margin-bottom: 1.25rem;
+	padding: 1.5rem;
+	border-radius: 16px;
+	background: linear-gradient(135deg, #fff7e8, #ffe3bf);
+}
+
+.kicker {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.74rem;
+	font-weight: 700;
+	color: #8f4c00;
+}
+
+h1 {
+	margin: 0.35rem 0;
+	font-size: clamp(1.6rem, 4vw, 2.2rem);
+	color: #2f2418;
+}
+
+.subtitle {
+	margin: 0;
+	color: #5b4834;
+}
+
+.status-chip {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.65rem 0.9rem;
+	border-radius: 10px;
+	background: #fff2dd;
+	color: #6a3f00;
+}
+
+.status-chip.error {
+	background: #ffe1e1;
+	color: #8e1b1b;
+}
+
+.cards-grid {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+	gap: 1rem;
+}
+
+.card-item {
+	margin: 0;
+}
+
+.info-card {
+	height: 100%;
+	border: 1px solid #f0d3a8;
+	border-radius: 14px;
+	padding: 1rem;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(92, 62, 26, 0.08);
+}
+
+.card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.65rem;
+}
+
+.badge {
+	font-size: 0.72rem;
+	font-weight: 700;
+	color: #7a4000;
+	background: #ffe1b8;
+	border-radius: 999px;
+	padding: 0.24rem 0.55rem;
+}
+
+.date {
+	font-size: 0.78rem;
+	color: #7a6a59;
+}
+
+h2 {
+	margin: 0;
+	color: #2e2115;
+	font-size: 1.1rem;
+}
+
+.description {
+	margin: 0.6rem 0 0.8rem;
+	color: #5a4a3a;
+	line-height: 1.45;
+}
+
+.manager {
+	margin: 0;
+	color: #4f3418;
+}

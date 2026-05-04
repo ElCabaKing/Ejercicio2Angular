@@ -3,5 +3,5 @@ export interface IDepartment {
     name: string;
     description: string;
     managerName: string;
-    id: number;
+    id: string;
 }

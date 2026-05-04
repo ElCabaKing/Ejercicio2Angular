@@ -1,13 +1,35 @@
-<div>
-    <h1>Departamentos</h1>
-    @if(isLoading()){
-        <p>Cargando...</p>
-    }
-    @else{
-        <ul>
-            @for(departament of listDepartaments(); track departament.id){
-                <li>{{ departament.name }}</li>
+<section class="list-page">
+    <header class="list-header">
+        <p class="kicker">Organizacion</p>
+        <h1>Departamentos</h1>
+        <p class="subtitle">Estructura de equipos, responsables y descripcion general.</p>
+                <input type="text" placeholder="Buscar por id" 
+    [(ngModel)]="searchTerm" 
+    (input)="searchDepartamentById()"
+    />
+    </header>
+
+    @if (isLoading()) {
+        <p class="status-chip">Cargando departamentos...</p>
+    } @else if (errorMessage()) {
+        <p class="status-chip error">{{ errorMessage() }}</p>
+    } @else if (listDepartaments().length === 0) {
+        <p class="status-chip">No hay departamentos para mostrar.</p>
+    } @else {
+        <ul class="cards-grid">
+            @for (departament of listDepartaments(); track departament.id) {
+                <li class="card-item">
+                    <article class="info-card">
+                        <div class="card-top">
+                            <span class="badge">#{{ departament.id }}</span>
+                            <span class="date">{{ departament.createdAt | date:'mediumDate' }}</span>
+                        </div>
+                        <h2>{{ departament.name }}</h2>
+                        <p class="description">{{ departament.description }}</p>
+                        <p class="manager">Responsable: <strong>{{ departament.managerName }}</strong></p>
+                    </article>
+                </li>
             }
         </ul>
     }
-</div>
+</section>

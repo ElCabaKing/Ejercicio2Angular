@@ -1,0 +1,125 @@
+.list-page {
+	max-width: 1080px;
+	margin: 2rem auto;
+	padding: 1rem;
+}
+
+.list-header {
+	margin-bottom: 1.25rem;
+	padding: 1.5rem;
+	border-radius: 16px;
+	background: linear-gradient(135deg, #e9f9ff, #cff1ff);
+}
+
+.kicker {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.08em;
+	font-size: 0.74rem;
+	font-weight: 700;
+	color: #075b75;
+}
+
+h1 {
+	margin: 0.35rem 0;
+	font-size: clamp(1.6rem, 4vw, 2.2rem);
+	color: #033442;
+}
+
+.subtitle {
+	margin: 0;
+	color: #19566b;
+}
+
+.status-chip {
+	display: inline-block;
+	margin-top: 0.5rem;
+	padding: 0.65rem 0.9rem;
+	border-radius: 10px;
+	background: #e3f6ff;
+	color: #0b4f66;
+}
+
+.status-chip.error {
+	background: #ffe1e1;
+	color: #8e1b1b;
+}
+
+.cards-grid {
+	list-style: none;
+	padding: 0;
+	margin: 1rem 0 0;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+	gap: 1rem;
+}
+
+.card-item {
+	margin: 0;
+}
+
+.info-card {
+	height: 100%;
+	border: 1px solid #bde9f8;
+	border-radius: 14px;
+	padding: 1rem;
+	background: #fff;
+	box-shadow: 0 8px 20px rgba(14, 66, 84, 0.08);
+}
+
+.card-top {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+	margin-bottom: 0.65rem;
+}
+
+.badge {
+	font-size: 0.72rem;
+	font-weight: 700;
+	color: #005477;
+	background: #cef2ff;
+	border-radius: 999px;
+	padding: 0.24rem 0.55rem;
+}
+
+.date {
+	font-size: 0.78rem;
+	color: #507081;
+}
+
+.person {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+}
+
+img {
+	width: 52px;
+	height: 52px;
+	border-radius: 50%;
+	object-fit: cover;
+}
+
+h2 {
+	margin: 0;
+	color: #11313e;
+	font-size: 1.05rem;
+}
+
+.position {
+	margin: 0.15rem 0 0;
+	color: #3f6170;
+}
+
+.meta {
+	margin: 0.7rem 0 0;
+	color: #244955;
+	word-break: break-word;
+}
+
+.salary {
+	margin: 0.65rem 0 0;
+	font-weight: 700;
+	color: #0c4053;
+}
