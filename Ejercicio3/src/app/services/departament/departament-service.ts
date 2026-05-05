@@ -16,4 +16,16 @@ export class DepartamentService {
   getDepartamentById(id: number): Observable<IDepartment> {
     return this.http.get<IDepartment>(`${environment.apiUrl}/departments/${id}`);
   }
+
+  createDepartment(departmentData: Partial<IDepartment>): Observable<IDepartment> {
+    return this.http.post<IDepartment>(`${environment.apiUrl}/departments`, departmentData);
+  }
+  
+  updateDepartment(id: number, departmentData: Partial<IDepartment>): Observable<IDepartment> {
+    return this.http.put<IDepartment>(`${environment.apiUrl}/departments/${id}`, departmentData);
+   }
+
+   deleteDepartment(id: number): Observable<void> {
+     return this.http.delete<void>(`${environment.apiUrl}/departments/${id}`);
+   }
 }

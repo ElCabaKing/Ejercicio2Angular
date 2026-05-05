@@ -123,3 +123,33 @@ h2 {
 	font-weight: 700;
 	color: #0c4053;
 }
+
+.search-button {
+	padding: 10px;
+	background-color: blue;
+	color: white;
+	border: none;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.edit-button {
+	padding: 10px;
+	background-color: white;
+	color: blue;
+	border: 2px solid blue;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+}
+
+.delete-button {
+	padding: 10px;
+	background-color: white;
+	color: red;
+	border: 2px solid red;
+	border-radius: 5px;
+	cursor: pointer;
+	margin-left: 10px;
+}

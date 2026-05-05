@@ -1,0 +1,20 @@
+<div class="modal-backdrop" (click)="closeModal()"></div>
+<div class="modal-container">
+    <div class="modal-content">
+        <h2>Departament Modal</h2>
+        <p>Contenido del modal para agregar departamento.</p>
+        <form (ngSubmit)="saveDepartment()">
+            <label for="name">Nombre:</label>
+            <input id="name" name="name" type="text" [(ngModel)]="departmentData.name" />
+
+            <label for="description">Descripcion:</label>
+            <input id="description" name="description" type="text" [(ngModel)]="departmentData.description" />
+
+            <label for="managerName">Manager:</label>
+            <input id="managerName" name="managerName" type="text" [(ngModel)]="departmentData.managerName " />
+
+            <button type="submit">Guardar</button>
+            <button type="button" (click)="closeModal()">Cancelar</button>
+        </form>
+    </div>
+</div>

@@ -7,6 +7,8 @@
     [(ngModel)]="searchTerm" 
     (input)="searchDepartamentById()"
     />
+    <button class="search-button" (click)="showModal.set(true)">+ Agregar Departamento</button>
+  
     </header>
 
     @if (isLoading()) {
@@ -27,9 +29,17 @@
                         <h2>{{ departament.name }}</h2>
                         <p class="description">{{ departament.description }}</p>
                         <p class="manager">Responsable: <strong>{{ departament.managerName }}</strong></p>
+                        <div class="button-container">
+                        <button class="edit-button" >Editar</button>
+                        <button class="delete-button" (click)="deleteDepartment(departament.id)">Eliminar</button>
+                        </div>
                     </article>
                 </li>
             }
         </ul>
+    }
+    @if (showModal()) {
+        <app-departament-modal (close)="showModal.set(false)"
+        (save)="createDepartment($event)"></app-departament-modal>
     }
 </section>

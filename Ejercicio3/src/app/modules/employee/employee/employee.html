@@ -3,40 +3,46 @@
         <p class="kicker">Talento</p>
         <h1>Empleados</h1>
         <p class="subtitle">Directorio de personas, cargo, contacto y area de trabajo.</p>
-        <input type="text" placeholder="Buscar por id" 
-    [(ngModel)]="searchTerm" 
-    (input)="searchEmployeeById()"
-    />
+        <input type="text" placeholder="Buscar por id" [(ngModel)]="searchTerm" (input)="searchEmployeeById()" />
+        <button class="search-button" (click)="showEmployeeModal.set(true)">+ Agregar Empleado</button>
+        <button class="edit-button">Editar primero</button>
     </header>
 
     @if (isLoading()) {
-        <p class="status-chip">Cargando empleados...</p>
+    <p class="status-chip">Cargando empleados...</p>
     } @else if (errorMessage()) {
-        <p class="status-chip error">{{ errorMessage() }}</p>
+    <p class="status-chip error">{{ errorMessage() }}</p>
     } @else if (listEmployees().length === 0) {
-        <p class="status-chip">No hay empleados para mostrar.</p>
+    <p class="status-chip">No hay empleados para mostrar.</p>
     } @else {
-        <ul class="cards-grid">
-            @for (employee of listEmployees(); track employee.id) {
-                <li class="card-item">
-                    <article class="info-card">
-                        <div class="card-top">
-                            <span class="badge">{{ employee.department }}</span>
-                            <span class="date">{{ employee.createdAt | date:'mediumDate' }}</span>
-                        </div>
-                        <div class="person">
-                            <img [src]="employee.avatar" [alt]="employee.name" loading="lazy" />
-                            <div>
-                                <h2>{{ employee.name }}</h2>
-                                <p class="position">{{ employee.position }}</p>
-                            </div>
-                        </div>
-                        <p class="meta">Correo: <strong>{{ employee.email }}</strong></p>
-                        <p class="meta">Telefono: <strong>{{ employee.phone }}</strong></p>
-                        <p class="salary">Salario: {{ employee.salary }}</p>
-                    </article>
-                </li>
-            }
-        </ul>
+    <ul class="cards-grid">
+        @for (employee of listEmployees(); track employee.id) {
+        <li class="card-item">
+            <article class="info-card">
+                <div class="card-top">
+                    <span class="badge">{{ employee.department }}</span>
+                    <span class="date">{{ employee.createdAt | date:'mediumDate' }}</span>
+                </div>
+                <div class="person">
+                    <img [src]="employee.avatar" [alt]="employee.name" loading="lazy" />
+                    <div>
+                        <h2>{{ employee.name }}</h2>
+                        <p class="position">{{ employee.position }}</p>
+                    </div>
+                </div>
+                <p class="meta">Correo: <strong>{{ employee.email }}</strong></p>
+                <p class="meta">Telefono: <strong>{{ employee.phone }}</strong></p>
+                <p class="salary">Salario: {{ employee.salary }}</p>
+                <button class="edit-button" (click)="editEmployee(employee)">Editar</button>
+                <button class="delete-button" (click)="deleteEmployee(employee.id)">Eliminar</button>
+            </article>
+
+        </li>
+        }
+    </ul>
+    }
+    @if (showEmployeeModal()) {
+    <app-employee-modal (close)="showEmployeeModal.set(false)"
+        (save)="showEmployeeModal.set(false); createEmployee($event)" />
     }
 </section>

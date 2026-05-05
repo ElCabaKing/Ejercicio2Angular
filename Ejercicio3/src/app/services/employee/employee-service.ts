@@ -16,4 +16,16 @@ export class EmployeeService {
   getEmployeeById(id: number): Observable<IEmployee> {
     return this.http.get<IEmployee>(`${environment.apiUrl}/employees/${id}`);
   }
+
+  createEmployee(employee: Partial<IEmployee>): Observable<IEmployee> {
+    return this.http.post<IEmployee>(`${environment.apiUrl}/employees`, employee);
+  }
+
+  updateEmployee(id: number, employee: Partial<IEmployee>): Observable<IEmployee> {
+    return this.http.put<IEmployee>(`${environment.apiUrl}/employees/${id}`, employee);
+  }
+
+  deleteEmployee(id: number): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/employees/${id}`);
+  }
 }
