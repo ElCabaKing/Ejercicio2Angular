@@ -1,0 +1,14 @@
+<div>
+    <h1>Vuelos</h1>
+    <button (click)="openNewFlightModal()">Agregar Nuevo Vuelo</button>
+   @if (showNewFlightModal()) {
+        <app-new-flight-modal (close)="this.showNewFlightModal.set(false)"
+        (submit)="createFlight($event)" />
+    }
+    @for (flight of listFlights(); track flight.id) {
+       <app-flights-card [flight]="flight" 
+       (delete)="deleteFlight(flight.id)" 
+       (edit)="editFlight($event)"
+       />
+    }
+</div>

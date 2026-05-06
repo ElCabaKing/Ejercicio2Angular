@@ -1,0 +1,22 @@
+<div class="modal-container ">
+    <form (ngSubmit)="saveFlight()">
+        <label for="flightNumber">Número de Vuelo:</label>
+        <input id="flightNumber" name="flightNumber" type="text" [(ngModel)]="flightData.flightNumber" />
+
+        <label for="origin">Origen:</label>
+        <input id="origin" name="origin" type="text" [(ngModel)]="flightData.origin" />
+
+        <label for="destination">Destino:</label>
+        <input id="destination" name="destination" type="text" [(ngModel)]="flightData.destination" />
+
+        <label for="price">Precio:</label>
+        <input id="price" name="price" type="number" [(ngModel)]="flightData.price" />
+
+        <label for="departureTime">Hora de Salida:</label>
+        <input id="departureTime" name="departureTime" 
+        type="datetime-local" [(ngModel)]="flightData.departure" />
+
+        <button type="submit">Guardar Cambios</button>
+        <button type="button" (click)="onClose()">Cancelar</button>
+    </form>
+</div>

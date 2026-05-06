@@ -1,0 +1,17 @@
+<div><div>
+    <h1>Vuelo {{ flight?.flightNumber }}</h1>
+    <p>Origen: {{ flight?.origin }}</p>
+    <p>Destino: {{ flight?.destination }}</p>
+    <p>Precio: ${{ flight?.price }}</p>
+    <p>Hora de Salida: {{ flight?.departure}}</p>
+</div>
+<div>
+    <button (click)="this.showEditModal.set(true)">Edit</button>
+    <button (click)="onDelete()">Delete</button>
+</div>
+@if (showEditModal()) {
+    <app-edit-flight-modal [flight]="flight" (close)="this.showEditModal.set(false)"
+    (submit)="updateFlight($event)"
+/>
+}
+</div>
