@@ -1,0 +1,20 @@
+@if (isLoading()) {
+  <app-spinner></app-spinner>
+}
+<div class="page-content">
+  <mat-form-field class="search-field">
+    <input
+      matInput
+      placeholder="Id de Curso"
+      (ngModelChange)="searchCourse($event)"
+      [(ngModel)]="searchTerm"
+      name="searchTerm"
+    >
+  </mat-form-field>
+
+  <section class="cards-grid">
+    @for (course of listCourses(); track course.id) {
+      <app-course-card [course]="course"></app-course-card>
+    }
+  </section>
+</div>

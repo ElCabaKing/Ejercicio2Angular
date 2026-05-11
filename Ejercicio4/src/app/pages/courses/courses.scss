@@ -1,0 +1,23 @@
+.page-content {
+	display: flex;
+	flex-direction: column;
+	gap: 1rem;
+}
+
+.search-field {
+	width: 100%;
+	max-width: 320px;
+}
+
+.cards-grid {
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+	gap: 1rem;
+	align-items: stretch;
+}
+
+@media (min-width: 960px) {
+	.cards-grid {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+}

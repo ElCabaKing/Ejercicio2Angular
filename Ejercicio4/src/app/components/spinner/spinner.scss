@@ -1,0 +1,24 @@
+.spinner-overlay { /* Spinner overlay: styles to place spinner above everything and block interaction */
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background: rgba(0, 0, 0, 0.35);
+	z-index: 9999;
+	pointer-events: all;
+}
+
+.spinner-container {
+	/* let spinner itself not capture pointer events so clicks are absorbed by overlay */
+	pointer-events: none;
+}
+
+/* optional: make spinner visible on dark background */
+.spinner-container mat-spinner {
+	color: #ffffff;
+}
+
