@@ -1,0 +1,54 @@
+<h2 mat-dialog-title>Informacion del Estudiante</h2>
+<mat-dialog-content>
+    <form #studentForm="ngForm" (ngSubmit)="saveStudent(studentForm)">
+        <mat-form-field>
+            <mat-label>Nombre</mat-label>
+            <input
+                matInput
+                name="name"
+                required
+                minlength="3"
+                [ngModel]="studentData().name"
+                (ngModelChange)="updateField('name', $event)"
+                #nameModel="ngModel"
+            >
+            @if (nameModel.invalid && nameModel.touched) {
+                <mat-error>El nombre es obligatorio y debe tener al menos 3 caracteres.</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Email</mat-label>
+            <input
+                matInput
+                name="email"
+                required
+                email
+                [ngModel]="studentData().email"
+                (ngModelChange)="updateField('email', $event)"
+                #emailModel="ngModel"
+            >
+            @if (emailModel.invalid && emailModel.touched) {
+                <mat-error>Ingresa un email válido.</mat-error>
+            }
+        </mat-form-field>
+        <mat-form-field>
+            <mat-label>Avatar Url</mat-label>
+            <input
+                matInput
+                name="avatarUrl"
+                required
+                minlength="10"
+                [ngModel]="studentData().avatar"
+                (ngModelChange)="updateField('avatar', $event)"
+                #avatarModel="ngModel"
+            >
+            @if (avatarModel.invalid && avatarModel.touched) {
+                <mat-error>La URL del avatar es obligatoria y debe tener al menos 10 caracteres.</mat-error>
+            }
+        </mat-form-field>
+        <div mat-dialog-actions>
+            <button mat-raised-button color="primary" type="submit" [disabled]="studentForm.invalid">Guardar</button>
+            <button mat-raised-button type="button" (click)="closeModal()">Cerrar</button>
+        </div>
+    </form>
+</mat-dialog-content>

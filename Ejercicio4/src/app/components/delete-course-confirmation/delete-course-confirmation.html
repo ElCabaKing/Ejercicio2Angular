@@ -1,0 +1,10 @@
+<h2 mat-dialog-title>Eliminar Curso</h2>
+<mat-dialog-content>
+  <p>
+    Estas seguro que deseas eliminar el curso {{ data.name }}? Esta acción no se puede deshacer.
+  </p>
+  <div mat-dialog-actions>
+    <button mat-raised-button color="warn" type="button" (click)="deleteCourse()">Eliminar</button>
+    <button mat-raised-button type="button" (click)="closeModal()">Cerrar</button>
+  </div>
+</mat-dialog-content>

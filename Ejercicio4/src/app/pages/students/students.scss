@@ -1,12 +1,38 @@
 .page-content {
 	display: flex;
 	flex-direction: column;
-	gap: 1rem;
+	gap: 1.25rem;
+	padding: 1rem 0;
+}
+
+.search-actions {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	gap: 0.875rem;
 }
 
 .search-field {
-	width: 100%;
-	max-width: 320px;
+	flex: 1 1 320px;
+	min-width: 240px;
+}
+
+.add-student-button {
+	height: 56px;
+	padding: 0 1.25rem;
+	border-radius: 999px;
+	font-weight: 600;
+	letter-spacing: 0.02em;
+}
+
+.add-student-button:hover {
+	transform: translateY(-1px);
+
+}
+
+.add-student-button:active {
+	transform: translateY(0);
+	box-shadow: 0 8px 18px rgba(25, 118, 210, 0.2);
 }
 
 .cards-grid {

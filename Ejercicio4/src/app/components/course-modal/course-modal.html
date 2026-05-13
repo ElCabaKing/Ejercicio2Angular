@@ -1,0 +1,73 @@
+<h2 mat-dialog-title>Curso</h2>
+<mat-dialog-content>
+	<form #courseForm="ngForm" (ngSubmit)="saveCourse(courseForm)">
+		<mat-form-field>
+			<mat-label>Nombre</mat-label>
+			<input
+				matInput
+				name="name"
+				required
+				minlength="3"
+				[ngModel]="courseData().name"
+				(ngModelChange)="updateField('name', $event)"
+				#nameModel="ngModel"
+			>
+			@if (nameModel.invalid && nameModel.touched) {
+				<mat-error>El nombre es obligatorio y debe tener al menos 3 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Descripción</mat-label>
+			<textarea
+				matInput
+				name="description"
+				required
+				minlength="10"
+				[ngModel]="courseData().description"
+				(ngModelChange)="updateField('description', $event)"
+				#descriptionModel="ngModel"
+			></textarea>
+			@if (descriptionModel.invalid && descriptionModel.touched) {
+				<mat-error>La descripción es obligatoria y debe tener al menos 10 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Nivel</mat-label>
+			<input
+				matInput
+				name="level"
+				required
+				minlength="2"
+				[ngModel]="courseData().level"
+				(ngModelChange)="updateField('level', $event)"
+				#levelModel="ngModel"
+			>
+			@if (levelModel.invalid && levelModel.touched) {
+				<mat-error>El nivel es obligatorio.</mat-error>
+			}
+		</mat-form-field>
+
+		<mat-form-field>
+			<mat-label>Instructor</mat-label>
+			<input
+				matInput
+				name="instructor"
+				required
+				minlength="3"
+				[ngModel]="courseData().instructor"
+				(ngModelChange)="updateField('instructor', $event)"
+				#instructorModel="ngModel"
+			>
+			@if (instructorModel.invalid && instructorModel.touched) {
+				<mat-error>El instructor es obligatorio y debe tener al menos 3 caracteres.</mat-error>
+			}
+		</mat-form-field>
+
+		<div mat-dialog-actions>
+			<button mat-raised-button color="primary" type="submit" [disabled]="courseForm.invalid">Guardar</button>
+			<button mat-raised-button type="button" (click)="closeModal()">Cerrar</button>
+		</div>
+	</form>
+</mat-dialog-content>

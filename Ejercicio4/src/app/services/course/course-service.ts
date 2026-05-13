@@ -16,4 +16,13 @@ export class CourseService {
   getCourseById(id: string): Observable<ICourse> {
     return this.http.get<ICourse>(`${environment.apiUrl}/courses/${id}`);
   }
+  updateCourse(id: string, course: ICourse): Observable<ICourse> {
+    return this.http.put<ICourse>(`${environment.apiUrl}/courses/${id}`, course);
+  }
+  saveCourse(course: ICourse): Observable<ICourse> {
+    return this.http.post<ICourse>(`${environment.apiUrl}/courses`, course);
+  }
+  deleteCourse(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/courses/${id}`);
+  }
 }

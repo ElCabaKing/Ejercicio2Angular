@@ -9,4 +9,8 @@
   <mat-card-content>
     {{ student?.email }}
   </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="openStudentModal()">Editar</button>
+    <button mat-button color="warn" (click)="deleteStudent()">Eliminar</button>
+  </mat-card-actions>
 </mat-card>

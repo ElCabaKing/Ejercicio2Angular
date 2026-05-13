@@ -19,4 +19,16 @@ export class StudentService {
   getStudentById(id: string): Observable<IStudent> {
     return this.http.get<IStudent>(`${environment.apiUrl}/students/${id}`);
   }
+
+  saveStudent(student: IStudent): Observable<IStudent> {
+    return this.http.post<IStudent>(`${environment.apiUrl}/students`, student);
+  }
+
+  updateStudent(id: string, student: IStudent): Observable<IStudent> {
+    return this.http.put<IStudent>(`${environment.apiUrl}/students/${id}`, student);
+  }
+
+  deleteStudent(id: string): Observable<void> {
+    return this.http.delete<void>(`${environment.apiUrl}/students/${id}`);
+  }
 }

@@ -2,19 +2,24 @@
   <app-spinner></app-spinner>
 }
 <div class="page-content">
-  <mat-form-field class="search-field">
-    <input
-      matInput
-      placeholder="Id de Estudiante"
-      (ngModelChange)="searchStudent($event)"
-      [(ngModel)]="searchTerm"
-      name="searchTerm"
-    >
-  </mat-form-field>
+  <div class="search-actions">
+    <mat-form-field class="search-field" appearance="outline">
+      <input
+        matInput
+        placeholder="Id de Estudiante"
+        (ngModelChange)="searchStudent($event)"
+        [(ngModel)]="searchTerm"
+        name="searchTerm"
+      >
+    </mat-form-field>
+    <button class="add-student-button" mat-raised-button color="primary" (click)="openStudentModal()">
+      Agregar Estudiante
+    </button>
+  </div>
 
   <section class="cards-grid">
     @for (student of listStudent(); track student.id) {
-      <app-student-card [student]="student"></app-student-card>
+      <app-student-card [student]="student" (studentUpdated)="loadStudents()"></app-student-card>
     }
   </section>
 </div>

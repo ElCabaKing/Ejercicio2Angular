@@ -1,16 +1,19 @@
-import { Component, inject, Signal, signal } from '@angular/core';
+import { Component, inject, signal } from '@angular/core';
 import { CourseCard } from '../../components/course-card/course-card';
 import { ICourse } from '../../core/interfaces/ICourse';
 import { CourseService } from '../../services/course/course-service';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { FormsModule } from '@angular/forms';
+import { MatDialog, MatDialogModule } from '@angular/material/dialog';
+import { MatButtonModule } from '@angular/material/button';
 import { Spinner } from '../../components/spinner/spinner';
+import { CourseModal } from '../../components/course-modal/course-modal';
 
 @Component({
   selector: 'app-courses',
   imports: [CourseCard, FormsModule, MatFormFieldModule, MatInputModule,
-    Spinner
+    Spinner, MatDialogModule, MatButtonModule
   ],
   templateUrl: './courses.html',
   styleUrl: './courses.scss',
@@ -20,6 +23,7 @@ export class Courses {
   public listCourses = signal<ICourse[]>([]);
   private readonly courseService = inject(CourseService);
   public searchTerm = signal('');
+  private readonly dialog = inject(MatDialog);
 
   ngOnInit(): void {
     this.loadCourses();
@@ -49,6 +53,19 @@ export class Courses {
       next: (courses) => this.listCourses.set(courses),
       error: (err) => console.error(err),
       complete: () => {this.isLoading.set(false); }
+    });
+  }
+
+  openCourseModal() {
+    const dialogRef = this.dialog.open(CourseModal, {
+      data: null
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      console.log('El modal de cursos se ha cerrado', result);
+      if (result?.updated) {
+        this.loadCourses();
+      }
     });
   }
 }
